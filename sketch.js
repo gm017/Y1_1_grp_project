@@ -2,7 +2,7 @@
 Year 0ne, group Project
  Video Synthesizer
 
- Intrstructions for use
+ Instructions for use
 
  load up the processing pde
  QWERTY keyboard
@@ -15,7 +15,7 @@ Year 0ne, group Project
  x: randomly change the colour of the shape
 
 
- /////// funcionallity to add.
+ /////// functions to add.
  // oscillation of objects
  // add quad with movable points
  //quad added but points need to move???????
@@ -24,9 +24,9 @@ Year 0ne, group Project
 
  //possible problems to address
 
- // when key released, objects dissapear. (Fixed I think)
+ // when key released, objects disappear. (Fixed I think)
 
- // miltiple keypresses affect the above.
+ // multiple key presses affect the above.
 
  */
 
