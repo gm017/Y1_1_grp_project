@@ -15,9 +15,6 @@ Year 0ne, group Project
  x: randomly change the colour of the shape
 
 
-
-
-
  /////// funcionallity to add.
  // oscillation of objects
  // add quad with movable points
@@ -25,11 +22,10 @@ Year 0ne, group Project
 
  //maybe move into OF or Cinder
 
-
-
  //possible problems to address
 
- // when key released, objects dissapear.
+ // when key released, objects dissapear. (Fixed I think)
+
  // miltiple keypresses affect the above.
 
  */
@@ -48,10 +44,19 @@ let y;
 let qx1, qy1, qx2, qy2, qx3, qy3, qx4, qy4; // quad points
 let r, g, b;
 let amt1 = 0.0; //noise1 movement
-let amt2  = 0.0; // noise 2 movement
+let amt2 = 0.0; // noise 2 movement
 let sinAmt = 0.0; // sin movement
 
+let sound1, sound2, sound3, sound4, sound5;
 
+
+function preload() {
+  sound1 = loadSound('audio/drone1.mp3');
+  sound2 = loadSound('audio/drone2.mp3');
+  sound3 = loadSound('audio/drone3.mp3');
+  sound4 = loadSound('audio/drone4.mp3');
+  sound5 = loadSound('audio/drone5.mp3');
+}
 
 
 function setup() {
@@ -67,6 +72,7 @@ function setup() {
 function draw() {
   //fill background
   background(0);
+
 
   //random quad variables
   qx1 = random(0, width);
@@ -91,12 +97,12 @@ function draw() {
   //draw ellipse
   if (drawEllipse == true) {
     fill(r, g, b);
-    ellipse(400*x , 400*y, sz, sz);
+    ellipse(400 * x, 400 * y, sz, sz);
   }
 
   // make the ellipse larger by pressing l
   if ((key === ';') || (key == ':')) {
-    sz = sz+ 1;
+    sz = sz + 1;
   }
 
   //draw rectangle
@@ -106,18 +112,20 @@ function draw() {
   }
 
   //draw quad
-  if (drawQuad === true){
+  if (drawQuad === true) {
     fill(r, g, b);
     //quad(x1,       y1,      x2,            y2,     x3,       y3,     x4,      y4)
-    quad(qx1 * x , qy1 * y, qx2 * (x + y), qy2 * y, qx3 * x, qy3 * y, qx4 * x, qy4 * y);
+    quad(qx1 * x, qy1 * y, qx2 * (x + y), qy2 * y, qx3 * x, qy3 * y, qx4 * x, qy4 * y);
   }
 
   //fill shapes
   if ((key == 'x') || (key == 'X')) {
-    r = noise(255);
+    r = random(255);
     g = random(255);
     b = random(255);
   }
+
+
 
   //sinX = sinX + 0.5;
 } // end of draw
@@ -131,22 +139,37 @@ function keyPressed() {
   if ((key === 'q') || (key === 'Q')) {
     sz = 100;
   }
-  if ((key == 'a') || (key == 'A') ) {
+  if ((key == 'a') || (key == 'A')) {
     drawEllipse = true;
+    sound1.play();
   }
   if ((key == 'S') || (key == 's')) {
     drawRectangle = true;
+    sound2.play();
   }
-  if((key == 'D') || (key == 'd')){
+  if ((key == 'D') || (key == 'd')) {
+    //NEED COME UP WITH NEW VISUAL
+    sound3.play();
+  }
+  if ((key == 'F') || (key == 'f')) {
+    //NEED COME UP WITH NEW VISUAL
+    sound4.play();
+  }
+  if (key == 'g') {
+    //NEED COME UP WITH NEW VISUAL
+    sound5.play();
+  }
+
+
+  if ((key == 'D') || (key == 'd')) {
     drawQuad = true;
+    sound3.play();
   }
-  if ((key == 'z') ||(key == 'Z')) {
+  if ((key == 'z') || (key == 'Z')) {
     rndBackground = true;
   }
   //noise move keys
   // j = X axis
-
-
 
   if ((key == 'j') || (key == 'J')) {
     amt1 = amt1 + 0.01;
@@ -155,13 +178,46 @@ function keyPressed() {
   if ((key == 'k') || (key == 'K')) {
     amt2 = amt2 + 0.01;
   }
+
+
+
   //////////////////////
 }
 
 
 function keyReleased() {
-  drawEllipse = false;
-  drawRectangle = false;
-  drawQuad = false;
-  rndBackground = false;
+  if ((key == 'a') || (key == 'A')) {
+    drawEllipse = false;
+    sound1.stop();
+  }
+  if ((key == 'S') || (key == 's')) {
+    drawRectangle = false;
+    sound2.stop();
+  }
+  if ((key == 'D') || (key == 'd')) {
+    drawQuad = false;
+    sound3.stop();
+  }
+  if ((key == 'F') || (key == 'f')) {
+    drawRectangle = false;
+    sound4.stop();
+  }
+  if (key == 'g') {
+    drawRectangle = false;
+    sound5.stop();
+  }
+
+
+  if ((key == 'z') || (key == 'Z')) {
+    rndBackground = false;
+  }
+
+  // if ((key == 'x') || (key == 'X')) {
+  //   r = 255;
+  //   g = 255;
+  //   b = 255;
+  // }
+
+
+
 }
