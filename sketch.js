@@ -81,6 +81,8 @@ function draw() {
   background(0);
 
 
+
+
   //random quad variables
   qx1 = random(0, width);
   qy1 = random(0, height);
@@ -126,6 +128,7 @@ function draw() {
     quad(qx1 * x, qy1 * y, qx2 * (x + y), qy2 * y, qx3 * x, qy3 * y, qx4 * x, qy4 * y);
   }
 
+
   //fill shapes
 
   if (keyIsDown(88)) {
@@ -133,6 +136,29 @@ function draw() {
     g = random(255);
     b = random(255);
   }
+
+
+  if (keyIsDown(67)) {
+
+    stroke(random(100, 0));
+
+    loadPixels();
+    let d = pixelDensity();
+
+    for (let i = 0; i < (4 * (width * d) * (height * d)); i += 4) {
+      if (pixels[i] % 4 === 0) {
+        pixels[i] = 255;
+        pixels[i + 1] = 100;
+        pixels[i + 2] = 4;
+        pixels[i + 3] = 50;
+      }
+    }
+
+
+    updatePixels();
+
+  }
+
 
 
   //sinX = sinX + 0.5;
@@ -259,6 +285,9 @@ function keyReleased() {
   if (key === 'c') {
     sound12.stop();
   }
+
+
+  //If uncommented resets shapes to white when x is not held
 
   // if ((key === 'x') || (key === 'X')) {
   //   r = 255;
