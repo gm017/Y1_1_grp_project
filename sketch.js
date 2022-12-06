@@ -47,15 +47,22 @@ let amt1 = 0.0; //noise1 movement
 let amt2 = 0.0; // noise 2 movement
 let sinAmt = 0.0; // sin movement
 
-let sound1, sound2, sound3, sound4, sound5;
+let sound1, sound2, sound3, sound4, sound5, sound6, sound7, sound8, sound9, sound10, sound11, sound12;
 
 
 function preload() {
-  sound1 = loadSound('audio/drone1.mp3');
-  sound2 = loadSound('audio/drone2.mp3');
-  sound3 = loadSound('audio/drone3.mp3');
-  sound4 = loadSound('audio/drone4.mp3');
-  sound5 = loadSound('audio/drone5.mp3');
+  sound1 = loadSound('audio/drone01.mp3');
+  sound2 = loadSound('audio/drone02.mp3');
+  sound3 = loadSound('audio/drone03.mp3');
+  sound4 = loadSound('audio/drone04.mp3');
+  sound5 = loadSound('audio/drone05.mp3');
+  sound6 = loadSound('audio/drone06.mp3');
+  sound7 = loadSound('audio/drone07.mp3');
+  sound8 = loadSound('audio/drone08.mp3');
+  sound9 = loadSound('audio/drone09.mp3');
+  sound10 = loadSound('audio/drone10.mp3');
+  sound10 = loadSound('audio/drone11.mp3');
+  sound10 = loadSound('audio/drone12.mp3');
 }
 
 
@@ -148,48 +155,60 @@ function keyPressed() {
     sound2.play();
   }
   if ((key == 'D') || (key == 'd')) {
-    //NEED COME UP WITH NEW VISUAL
-    sound3.play();
-  }
-  if ((key == 'F') || (key == 'f')) {
-    //NEED COME UP WITH NEW VISUAL
-    sound4.play();
-  }
-  if (key == 'g') {
-    //NEED COME UP WITH NEW VISUAL
-    sound5.play();
-  }
-
-
-  if ((key == 'D') || (key == 'd')) {
     drawQuad = true;
     sound3.play();
   }
-  if ((key == 'z') || (key == 'Z')) {
-    rndBackground = true;
+
+  //Come up with new visuals for further keys
+
+
+  if ((key == 'F') || (key == 'f')) {
+    sound4.play();
   }
-  //noise move keys
-  // j = X axis
-
-  if ((key == 'j') || (key == 'J')) {
-    amt1 = amt1 + 0.01;
+  if (key == 'g') {
+    sound5.play();
   }
-  //k = Y axis
-  if ((key == 'k') || (key == 'K')) {
-    amt2 = amt2 + 0.01;
+  if (key == 'h') {
+    sound6.play();
   }
+  if (key == 'j') {
+    sound7.play();
+  }
+  if (key == 'k') {
+    sound8.play();
+  }
+  if (key == 'l') {
+    sound9.play();
+
+
+    if ((key == 'z') || (key == 'Z')) {
+      rndBackground = true;
+    }
+    //noise move keys
+    // j = X axis
+
+    if ((key == 'j') || (key == 'J')) {
+      amt1 = amt1 + 0.01;
+    }
+    //k = Y axis
+    if ((key == 'k') || (key == 'K')) {
+      amt2 = amt2 + 0.01;
+    }
 
 
 
-  //////////////////////
+    //////////////////////
+  }
 }
 
 
 function keyReleased() {
+
   if ((key == 'a') || (key == 'A')) {
     drawEllipse = false;
     sound1.stop();
   }
+
   if ((key == 'S') || (key == 's')) {
     drawRectangle = false;
     sound2.stop();
@@ -206,18 +225,31 @@ function keyReleased() {
     drawRectangle = false;
     sound5.stop();
   }
-
-
-  if ((key == 'z') || (key == 'Z')) {
-    rndBackground = false;
+  if (key == 'h') {
+    sound6.stop();
   }
+  if (key == 'j') {
+    sound7.stop();
+  }
+  if (key == 'k') {
+    sound8.stop();
+  }
+  if (key == 'l') {
+    sound9.stop();
 
-  // if ((key == 'x') || (key == 'X')) {
-  //   r = 255;
-  //   g = 255;
-  //   b = 255;
-  // }
+
+    if ((key == 'z') || (key == 'Z')) {
+      rndBackground = false;
+    }
+
+    // if ((key == 'x') || (key == 'X')) {
+    //   r = 255;
+    //   g = 255;
+    //   b = 255;
+    // }
 
 
 
+  }
 }
+
