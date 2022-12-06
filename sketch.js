@@ -179,27 +179,28 @@ function keyPressed() {
   }
   if (key == 'l') {
     sound9.play();
-
-
-    if ((key == 'z') || (key == 'Z')) {
-      rndBackground = true;
-    }
-    //noise move keys
-    // j = X axis
-
-    if ((key == 'j') || (key == 'J')) {
-      amt1 = amt1 + 0.01;
-    }
-    //k = Y axis
-    if ((key == 'k') || (key == 'K')) {
-      amt2 = amt2 + 0.01;
-    }
-
-
-
-    //////////////////////
   }
+
+  if ((key == 'z') || (key == 'Z')) {
+    rndBackground = true;
+  }
+
+  //noise move keys
+  // j = X axis
+
+  if ((key == 'j') || (key == 'J')) {
+    amt1 = amt1 + 0.01;
+  }
+  //k = Y axis
+  if ((key == 'k') || (key == 'K')) {
+    amt2 = amt2 + 0.01;
+  }
+
+
+
+  //////////////////////
 }
+
 
 
 function keyReleased() {
@@ -236,20 +237,20 @@ function keyReleased() {
   }
   if (key == 'l') {
     sound9.stop();
-
-
-    if ((key == 'z') || (key == 'Z')) {
-      rndBackground = false;
-    }
-
-    // if ((key == 'x') || (key == 'X')) {
-    //   r = 255;
-    //   g = 255;
-    //   b = 255;
-    // }
-
-
-
   }
+
+  if ((key == 'z') || (key == 'Z')) {
+    rndBackground = false;
+  }
+
+  // if ((key == 'x') || (key == 'X')) {
+  //   r = 255;
+  //   g = 255;
+  //   b = 255;
+  // }
+
+
+
 }
+
 
