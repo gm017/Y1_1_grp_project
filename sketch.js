@@ -98,9 +98,8 @@ function draw() {
 
   //////////////////////////////////////
   if (rndBackground == true) {
-    if (frameCount % 15 === 0) {
-      background(random(255), random(255), random(255));
-    }
+    background(random(255), random(255), random(255));
+
   }
 
   //draw ellipse
@@ -128,11 +127,13 @@ function draw() {
   }
 
   //fill shapes
-  if ((key == 'x') || (key == 'X')) {
+
+  if (keyIsDown(88)) {
     r = random(255);
     g = random(255);
     b = random(255);
   }
+
 
   //sinX = sinX + 0.5;
 } // end of draw
@@ -259,7 +260,7 @@ function keyReleased() {
     sound12.stop();
   }
 
-  // if ((key == 'x') || (key == 'X')) {
+  // if ((key === 'x') || (key === 'X')) {
   //   r = 255;
   //   g = 255;
   //   b = 255;
