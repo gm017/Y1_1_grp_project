@@ -38,6 +38,7 @@ let drawQuad = false;
 let rndBackground = false;
 
 let sz = 100;
+//////some random thing here
 
 let x;
 let y;
