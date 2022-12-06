@@ -60,9 +60,9 @@ function preload() {
   sound7 = loadSound('audio/drone07.mp3');
   sound8 = loadSound('audio/drone08.mp3');
   sound9 = loadSound('audio/drone09.mp3');
-  sound10 = loadSound('audio/drone10.mp3');
-  sound10 = loadSound('audio/drone11.mp3');
   sound10 = loadSound('audio/drone12.mp3');
+  sound11 = loadSound('audio/drone10.mp3');
+  sound12 = loadSound('audio/drone11.mp3');
 }
 
 
@@ -98,7 +98,9 @@ function draw() {
 
   //////////////////////////////////////
   if (rndBackground == true) {
-    background(random(255), random(255), random(255));
+    if (frameCount % 15 === 0) {
+      background(random(255), random(255), random(255));
+    }
   }
 
   //draw ellipse
@@ -132,8 +134,6 @@ function draw() {
     b = random(255);
   }
 
-
-
   //sinX = sinX + 0.5;
 } // end of draw
 
@@ -163,6 +163,7 @@ function keyPressed() {
 
 
   if ((key == 'F') || (key == 'f')) {
+
     sound4.play();
   }
   if (key == 'g') {
@@ -183,6 +184,15 @@ function keyPressed() {
 
   if ((key == 'z') || (key == 'Z')) {
     rndBackground = true;
+    sound10.play();
+  }
+
+  if (key === 'x') {
+    sound11.play();
+  }
+
+  if (key === 'c') {
+    sound12.play();
   }
 
   //noise move keys
@@ -238,9 +248,15 @@ function keyReleased() {
   if (key == 'l') {
     sound9.stop();
   }
-
   if ((key == 'z') || (key == 'Z')) {
     rndBackground = false;
+    sound10.stop();
+  }
+  if (key === 'x') {
+    sound11.stop();
+  }
+  if (key === 'c') {
+    sound12.stop();
   }
 
   // if ((key == 'x') || (key == 'X')) {
@@ -248,8 +264,6 @@ function keyReleased() {
   //   g = 255;
   //   b = 255;
   // }
-
-
 
 }
 
