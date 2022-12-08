@@ -6,7 +6,7 @@
  
  
  
-         Intrstructions for use
+Intrstructions for use
 
  load up the processing pde
  QWERTY keyboard
