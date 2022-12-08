@@ -1,5 +1,5 @@
 
- We made a little video synthesizer in Processing.
+/* We made a little video synthesizer in Processing.
  
  
  
@@ -16,4 +16,5 @@
  j: make shape move randomly along the X axis
  k: make shape move randomly along the Y axis
  ;: make shape larger
-           
+  
+  */
