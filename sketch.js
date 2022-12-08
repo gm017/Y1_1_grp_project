@@ -37,7 +37,7 @@ let drawRectangle = false;
 let drawQuad = false;
 let rndBackground = false;
 
-let sz = 100;
+let sz = 1000;
 //////some random thing here
 
 let x;
@@ -68,7 +68,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(displayWidth, displayHeight);
   smooth();
   rectMode(CENTER);
   ellipseMode(CENTER);
