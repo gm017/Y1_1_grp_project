@@ -8,6 +8,8 @@ Year 0ne, group Project
  QWERTY keyboard
  a: show an ellipse
  s: show a square
+ d: show random shape
+ f: show another random shape
  j: make shape move randomly along the X axis
  k: make shape move randomly along the Y axis
  ;: make shape larger
@@ -32,9 +34,12 @@ Year 0ne, group Project
 
 
 
+// import {TRIANGLE_STRIP} from "./p5";
+
 let drawEllipse = false;
 let drawRectangle = false;
 let drawQuad = false;
+let drawShape = false;
 let rndBackground = false;
 
 let sz = 1000;
@@ -42,11 +47,13 @@ let sz = 1000;
 
 let x;
 let y;
+let posX;
+let posY;
 let qx1, qy1, qx2, qy2, qx3, qy3, qx4, qy4; // quad points
 let r, g, b;
 let amt1 = 0.0; //noise1 movement
 let amt2 = 0.0; // noise 2 movement
-let sinAmt = 0.0; // sin movement
+// let sinAmt = 0.0; // sin movement
 
 let sound1, sound2, sound3, sound4, sound5, sound6, sound7, sound8, sound9, sound10, sound11, sound12;
 
@@ -83,7 +90,8 @@ function draw() {
 
 
 
-
+  posX = width/2;
+  posY = height/2;
   //random quad variables
   qx1 = random(0, width);
   qy1 = random(0, height);
@@ -97,7 +105,7 @@ function draw() {
   x = noise(amt1);
   y = noise(amt2);
 
-  let sinX = sin(sinAmt);
+  // let sinX = sin(sinAmt);
 
   //////////////////////////////////////
   if (rndBackground == true) {
@@ -108,10 +116,10 @@ function draw() {
   //draw ellipse
   if (drawEllipse == true) {
     fill(r, g, b);
-    ellipse(400 * x, 400 * y, sz, sz);
+    ellipse(posX * x, posY * y, sz, sz);
   }
 
-  // make the ellipse larger by pressing l
+  // make the shapes larger by pressing ;
   if ((key === ';') || (key == ':')) {
     sz = sz + 1;
   }
@@ -119,7 +127,7 @@ function draw() {
   //draw rectangle
   if (drawRectangle === true) {
     fill(r, g, b);
-    rect(400 * x, 400 * y, sz, sz);
+    rect(posX * x, posY * y, sz, sz);
   }
 
   //draw quad
@@ -127,6 +135,20 @@ function draw() {
     fill(r, g, b);
     //quad(x1,       y1,      x2,            y2,     x3,       y3,     x4,      y4)
     quad(qx1 * x, qy1 * y, qx2 * (x + y), qy2 * y, qx3 * x, qy3 * y, qx4 * x, qy4 * y);
+  }
+
+  //draw randomShape
+  if(drawShape === true){
+    fill(r, g, b, 100);
+    beginShape(TRIANGLE_STRIP);
+      vertex(qx1*qy1, qy1*qx2);
+      vertex(qx2, qy2);
+      vertex(qx3, qy3);
+      vertex(qx4, qy4);
+      vertex(qx1/qx2, qy3/qy4);
+      vertex(qx3*qx1, qy4*qy2);
+      vertex(qx1/qx2*qx3+qx4, qy1+qy2*qy3/qy4);
+      endShape();
   }
 
 
@@ -172,7 +194,7 @@ function draw() {
 function keyPressed() {
   //Q resets size
   if ((key === 'q') || (key === 'Q')) {
-    sz = 100;
+    sz = 1000;
   }
   if ((key == 'a') || (key == 'A')) {
     drawEllipse = true;
@@ -191,7 +213,7 @@ function keyPressed() {
 
 
   if ((key == 'F') || (key == 'f')) {
-
+    drawShape = true;
     sound4.play();
   }
   if (key == 'g') {
@@ -257,7 +279,7 @@ function keyReleased() {
     sound3.stop();
   }
   if ((key == 'F') || (key == 'f')) {
-    drawRectangle = false;
+    drawShape = false;
     sound4.stop();
   }
   if (key == 'g') {
