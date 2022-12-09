@@ -71,6 +71,12 @@ function preload() {
   sound10 = loadSound('audio/drone12.mp3');
   sound11 = loadSound('audio/drone10.mp3');
   sound12 = loadSound('audio/drone11.mp3');
+  sound13 = loadSound('audio/drone13.mp3');
+  sound14 = loadSound('audio/drone14.mp3');
+  sound15 = loadSound('audio/drone17.mp3');
+  sound16 = loadSound('audio/drone16.mp3');
+  sound17 = loadSound('audio/drone17.mp3');
+  sound18 = loadSound('audio/drone18.mp3');
 }
 
 
@@ -90,8 +96,8 @@ function draw() {
 
 
 
-  posX = width/2;
-  posY = height/2;
+  posX = width / 2;
+  posY = height / 2;
   //random quad variables
   qx1 = random(0, width);
   qy1 = random(0, height);
@@ -138,17 +144,17 @@ function draw() {
   }
 
   //draw randomShape
-  if(drawShape === true){
+  if (drawShape === true) {
     fill(r, g, b, 100);
     beginShape(TRIANGLE_STRIP);
-      vertex(qx1*qy1, qy1*qx2);
-      vertex(qx2, qy2);
-      vertex(qx3, qy3);
-      vertex(qx4, qy4);
-      vertex(qx1/qx2, qy3/qy4);
-      vertex(qx3*qx1, qy4*qy2);
-      vertex(qx1/qx2*qx3+qx4, qy1+qy2*qy3/qy4);
-      endShape();
+    vertex(qx1 * qy1, qy1 * qx2);
+    vertex(qx2, qy2);
+    vertex(qx3, qy3);
+    vertex(qx4, qy4);
+    vertex(qx1 / qx2, qy3 / qy4);
+    vertex(qx3 * qx1, qy4 * qy2);
+    vertex(qx1 / qx2 * qx3 + qx4, qy1 + qy2 * qy3 / qy4);
+    endShape();
   }
 
 
@@ -245,6 +251,21 @@ function keyPressed() {
     sound12.play();
   }
 
+  if ((key == 'v') || (key == 'V')) {
+    sound13.play();
+  }
+
+  if (key === 'b') {
+    sound14.play();
+  }
+
+  if (key === 'n') {
+    sound15.play();
+  }
+  if (key === 'm') {
+    sound16.play();
+  }
+
   //noise move keys
   // j = X axis
 
@@ -308,6 +329,19 @@ function keyReleased() {
   if (key === 'c') {
     sound12.stop();
   }
+  if ((key == 'v') || (key == 'V')) {
+    sound13.stop();
+  }
+  if (key === 'b') {
+    sound14.stop();
+  }
+  if (key === 'n') {
+    sound15.stop();
+  }
+  if (key === 'm') {
+    sound16.stop();
+  }
+
 
 
   //If uncommented resets shapes to white when x is not held
