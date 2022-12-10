@@ -77,6 +77,7 @@ function preload() {
   sound16 = loadSound('audio/drone16.mp3');
   sound17 = loadSound('audio/drone17.mp3');
   sound18 = loadSound('audio/drone18.mp3');
+
 }
 
 
@@ -86,15 +87,11 @@ function setup() {
   rectMode(CENTER);
   ellipseMode(CENTER);
   noStroke();
-
-
 }
 
 function draw() {
   //fill background
   background(0);
-
-
 
   posX = width / 2;
   posY = height / 2;
