@@ -1,6 +1,7 @@
 /*
 Year 0ne, group Project
  Video Synthesizer
+ Gabriel Manzi & Ashley Sagar
 
  Instructions for use
 
